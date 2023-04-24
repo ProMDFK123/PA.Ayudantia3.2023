@@ -1,0 +1,37 @@
+@startuml
+Entity Empresa{
+monitores
+teclados
+empleados
+}
+
+Entity Teclado{
+marca
+cantidad de teclas
+tipo de switch
+idioma
+}
+
+Entity Monitor{
+marca
+pulgadas
+Hz
+tipo de pantalla
+}
+
+Entity Empleado{
+nombre
+dirección
+edad
+cantidad de ventas realizadas
+monitores
+teclados
+}
+
+Empresa"1"--"1..*"Empleado:tiene >
+Empresa"1"--"*"Monitor:tiene >
+Empresa"1"--"*"Teclado:tiene >
+
+Empleado"1"--"*"Monitor:vende >
+Empleado"1"--"*"Teclado:vende >
+@enduml

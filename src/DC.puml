@@ -1,0 +1,90 @@
+@startuml
+left to right direction
+
+Class Monitor{
+-marca: String
+-cantPulgadas: int
+-cantHz: int
+-tipoPantalla: String
++get's()
++set's()
++Monitor()
+}
+
+Class ListaMonitor{
+-listaMonitores: Monitor[]
+-cantMonitores: int
+-cantMax: int
++get's()
++set's()
++ListaMonitor(cantMax: int)
++agregar(monitor: Monitor): void
+}
+
+Monitor <--o ListaMonitor
+
+Class Teclado{
+-marca: String
+-cantTeclas: int
+-tipoSwitch: String
+-idioma: String
++get's()
++set's()
+}
+
+Class ListaTeclado{
+-listaTeclados: Teclado[]
+-cantTeclados: int
+-cantMax: int
++get's()
++set's()
++ListaTeclado(cantMax: int)
++agregar(teclado: Teclado): void
+}
+
+Teclado <--o ListaTeclado
+
+Class Empleado{
+-nombre: String
+-direccion: String
+-edad: int
+-ventasRealizadas: int
++get's()
++set's()
++Empleado()
+}
+
+Class ListaEmpleado{
+-listaEmpleado: Empleado[]
+-cantEmpleados: int
+-cantMax: int
++get's()
++set's()
++ListaEmpleado(cantMax: int)
++agregar(empleado: Empleado): void
+}
+
+Empleado <--o ListaEmpleado
+
+Class EmpresaImpl{
+-listaMonitores: ListaMonitor
+-listaEmpleado:ListaEmpleado
+-listaTeclados: ListaTeclado
++EmpresaImpl()
++get's()
++set's()
+}
+
+EmpresaImpl--> ListaTeclado
+EmpresaImpl--> ListaEmpleado
+EmpresaImpl--> ListaMonitor
+
+Empleado -->ListaMonitor
+Empleado-->ListaTeclado
+
+interface Empresa{
++contarInventario(): int
+}
+
+Empresa..^ EmpresaImpl
+@enduml
